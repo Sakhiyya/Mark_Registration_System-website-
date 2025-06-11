@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Modify Mark</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="module_code">Module Code:</label>
+            <input type="text" id="module_code" name="module_code" required>
+        </div>
+        <div>
+            <label for="student_id">Student ID:</label>
+            <input type="text" id="student_id" name="student_id" required>
+        </div>
+        <div>
+            <label for="date_of_entry">Date of Entry:</label>
+            <input type="date" id="date_of_entry" name="date_of_entry" required>
+        </div>
+        <div>
+            <label for="coursework1_mark">Coursework 1 Mark:</label>
+            <input type="number" id="coursework1_mark" name="coursework1_mark" step="0.01" value="{{ mark_entry.coursework1_mark|default:'' }}">
+        </div>
+        <div>
+            <label for="coursework2_mark">Coursework 2 Mark:</label>
+            <input type="number" id="coursework2_mark" name="coursework2_mark" step="0.01" value="{{ mark_entry.coursework2_mark|default:'' }}">
+        </div>
+        <div>
+            <label for="coursework3_mark">Coursework 3 Mark:</label>
+            <input type="number" id="coursework3_mark" name="coursework3_mark" step="0.01" value="{{ mark_entry.coursework3_mark|default:'' }}">
+        </div>
+        <div>
+            <button type="submit" name="search" value="search">Search</button>
+            <button type="submit" name="update" value="update">Update</button>
+        </div>
+    </form>
+
+    {% if error %}
+    <div style="color: red;">{{ error }}</div>
+    {% endif %}
+</div>
+{% endblock content %} 

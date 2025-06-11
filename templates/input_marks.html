@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>Mark Entry Form</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="module_code">Module Code:</label>
+            {{ form.module_code }}
+            {% if form.module_code.errors %}
+                <div class="error">
+                    {{ form.module_code.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <label for="module_name">Module Name:</label>
+            {{ form.module_name }}
+            {% if form.module_name.errors %}
+                <div class="error">
+                    {{ form.module_name.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <label for="coursework1_mark">Coursework 1 Mark:</label>
+            {{ form.coursework1_mark }}
+            {% if form.coursework1_mark.errors %}
+                <div class="error">
+                    {{ form.coursework1_mark.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <label for="coursework2_mark">Coursework 2 Mark:</label>
+            {{ form.coursework2_mark }}
+            {% if form.coursework2_mark.errors %}
+                <div class="error">
+                    {{ form.coursework2_mark.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <label for="coursework3_mark">Coursework 3 Mark:</label>
+            {{ form.coursework3_mark }}
+            {% if form.coursework3_mark.errors %}
+                <div class="error">
+                    {{ form.coursework3_mark.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <label for="student_id">Student ID:</label>
+            {{ form.student_id }}
+            {% if form.student_id.errors %}
+                <div class="error">
+                    {{ form.student_id.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <label for="student_name">Student Name:</label>
+            {{ form.student_name }}
+            {% if form.student_name.errors %}
+                <div class="error">
+                    {{ form.student_name.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <label for="date_of_entry">Date of Entry:</label>
+            {{ form.date_of_entry }}
+            {% if form.date_of_entry.errors %}
+                <div class="error">
+                    {{ form.date_of_entry.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label for="male">Male</label>
+                </div>
+                <div>
+                    <input type="radio" id="female" name="gender" value="Female" required>
+                    <label for="female">Female</label>
+                </div>
+                <div>
+                    <input type="radio" id="other" name="gender" value="Other" required>
+                    <label for="other">Other</label>
+                </div>
+            </div>
+            {% if form.gender.errors %}
+                <div class="error">
+                    {{ form.gender.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+</div>
+{% endblock %}

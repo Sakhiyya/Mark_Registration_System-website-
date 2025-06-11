@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Registration System</title>
+    <link rel="stylesheet" href="{% static 'mark_registration_system/styles.css' %}">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="description" content="A system for registering and managing student marks.">
+    <meta name="author" content="Sakhiyya Dewan">
+</head>
+<body>
+    <header>
+        <h1>Mark Registration System</h1>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item"><a href="{% url 'input_marks' %}">Input Marks</a></li>
+            <li class="nav-item"><a href="{% url 'view_marks' %}">View Marks</a></li>
+            <li class="nav-item"><a href="{% url 'update_marks' %}">Update Marks</a></li>
+            <li class="nav-item"><a href="{% url 'visualization' %}">Visualization</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        {% block content %}
+        
+        {% endblock content %}
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.marks-table').DataTable();
+        });
+    </script>
+</body>
+</html>

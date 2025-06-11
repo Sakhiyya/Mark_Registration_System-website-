@@ -1,0 +1,180 @@
+<!-- visualization.html -->
+{% extends 'base.html' %}
+
+{% block title %}Marks Visualization{% endblock %}
+
+{% block content %}
+<h2>Marks Visualization</h2>
+
+<!-- Gender Distribution Chart (Pie Chart) -->
+<div class="chart-container">
+    <canvas id="genderChart"></canvas>
+</div>
+
+<!-- Average Marks Chart (Line Chart) -->
+<div class="chart-container">
+    <canvas id="averageMarksChart"></canvas>
+</div>
+
+<!-- Marks per Module Chart (Bar Chart) -->
+<div class="chart-container">
+    <canvas id="marksByModuleChart"></canvas>
+</div>
+
+<style>
+    .chart-container {
+        width: 80%;
+        height: 400px;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+    }
+    #genderChart, #averageMarksChart, #marksByModuleChart {
+        width: 100% !important;
+        height: 100% !important;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Gender Distribution (Pie Chart)
+        const genderDistribution = {{ gender_distribution|safe }};
+        const genderLabels = Object.keys(genderDistribution);
+        const genderData = Object.values(genderDistribution);
+
+        const ctxGender = document.getElementById('genderChart').getContext('2d');
+        new Chart(ctxGender, {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: genderData,
+                    backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)', 'rgba(75, 192, 192, 0.8)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(75, 192, 192, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Gender Distribution'
+                    }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutBounce'
+                }
+            }
+        });
+
+        // Average Marks (Line Chart)
+        const averageMarks = {{ average_marks|safe }};
+        const courseworkLabels = Object.keys(averageMarks);
+        const courseworkData = Object.values(averageMarks);
+
+        const ctxAverageMarks = document.getElementById('averageMarksChart').getContext('2d');
+        new Chart(ctxAverageMarks, {
+            type: 'line',
+            data: {
+                labels: courseworkLabels,
+                datasets: [{
+                    label: 'Average Marks',
+                    data: courseworkData,
+                    fill: false,
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Average Marks per Coursework'
+                    }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Coursework' }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Marks' }
+                    }
+                }
+            }
+        });
+
+        // Marks per Module (Bar Chart)
+        const marksByModule = {{ marks_by_module|safe }};
+        const moduleCodes = Object.keys(marksByModule);
+        const coursework1Marks = moduleCodes.map(module => marksByModule[module]['coursework1'].reduce((a, b) => a + b, 0));
+        const coursework2Marks = moduleCodes.map(module => marksByModule[module]['coursework2'].reduce((a, b) => a + b, 0));
+        const coursework3Marks = moduleCodes.map(module => marksByModule[module]['coursework3'].reduce((a, b) => a + b, 0));
+
+        const ctxMarksByModule = document.getElementById('marksByModuleChart').getContext('2d');
+        new Chart(ctxMarksByModule, {
+            type: 'bar',
+            data: {
+                labels: moduleCodes,
+                datasets: [
+                    {
+                        label: 'Coursework 1 Marks',
+                        data: coursework1Marks,
+                        backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Coursework 2 Marks',
+                        data: coursework2Marks,
+                        backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Coursework 3 Marks',
+                        data: coursework3Marks,
+                        backgroundColor: 'rgba(75, 192, 192, 0.8)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Marks per Module'
+                    }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Module Code' }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Marks' }
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+{% endblock %}

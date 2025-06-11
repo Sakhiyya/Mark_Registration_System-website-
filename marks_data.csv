@@ -1,0 +1,33 @@
+module_code,module_name,coursework1_mark,coursework2_mark,coursework3_mark,student_id,student_name,date_of_entry,gender
+2095,internet of things,28,36,47,D70900203,sakhiyya dewan,2003-04-12,Female
+7026,Big data Architecture,37,36,38,S00283605,Bhurtun Soumaiyya,2002-04-18,Female
+1020,Computer Architecture and Organization,30,15,25,A003284398,Diya Kodai,2004-01-03,Female
+7026,Big data Architecture,16,36,14,y00365230,lambin adeline,2003-06-05,Female
+3035,python methodology 2,25,34,29,Z00928457,Arvind Kumar,2003-02-14,Male
+4010,cloud computing ,40,37,38,X00857432,Meera Patel,2003-11-23,Female
+3035,python methodology 2,28,30,32,W00598432,Kavish Ramdin,2002-07-19,Male
+3035,python methodology 2,39,23,21,m00236593,Moonien Saamia,2003-12-23,Female
+2095,internet of things,31,34,33,R00748573,Sunil sharma,2003-12-28,Male
+2095,internet of things,29,30,28,P00587329,Pooja menon,2002-06-15,Female
+2095,internet of things,34,35,36,V00957328,vikas verma,2003-08-18,Male
+2095,internet of things,31,38,35,A00283642,Anita Joshi,2003-11-22,Female
+7026,Big data Architecture,33,32,34,S00837429,Sachin Reddy,2002-05-20,Male
+2095,internet of things,36,37,38,R00573820,Sophie Williams,2003-02-24,Female
+7026,Big data Architecture,23,24,25,K00429375,Liam Johnson,2003-07-29,Male
+7026,Big data Architecture,31,32,33,D70900203,sakhiyya dewan,2003-12-04,Female
+2095,internet of things,30,31,32,K00429375,Liam Johnson,2003-09-04,Male
+7026,Big data Architecture,20,21,22,y00365230,lambin adeline,2003-06-12,M
+2095,internet of things,20,21,22,S015,Olivia King,2003-01-12,Female
+2095,internet of things,30,31,32,S00283605,Bhurtun Soumaiyya,2003-09-12,Female
+2095,internet of things,20,21,22,W00598432,Kavish Ramdin,2002-01-06,Male
+2095,internet of things,10,11,12,X00857432,Meera Patel,2003-12-23,Female
+2095,internet of things,20,21,22,Z00928457,Arvind Kumar,2003-08-08,Male
+7026,Big data Architecture,20,23,24,D70900203,sakhiyya dewan,2003-04-12,Female
+3035,python methodology 2,20,21,22,X00857432,Meera Patel,2002-05-02,Female
+1020,Computer Architecture and Organization,25,23,27,V00957328,vikas verma,2002-12-12,Male
+2095,internet of things,21,22,23,NT1503,Batman,2003-10-15,Male
+2095,internet of things,10,11,12,m00236593,Moonien Saamia,2003-12-23,Female
+4010,cloud computing,20,21,22,K00429375,Liam Johnson,2024-11-27,Male
+3035,python methodology 2,10,11,12,S015,Olivia King,2025-01-06,Female
+7026,Big data Architecture,30,31,32,R00573820,Sophie Williams,2025-01-11,Female
+7026,internet of things,45,46,47,lhw23,Immanuel long,2025-01-16,Male

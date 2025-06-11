@@ -1,0 +1,238 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #ff5f6d, #ffc371, #e0c3fc, #8ec5fc); /* Gradient with red, orange, pink, and purple */
+    color: black;
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+header h1 {
+    font-size: 3em;
+    color: black;
+    margin: 0;
+    padding: 10px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.navbar {
+    background: linear-gradient(to bottom right, #e3c2dc, #ff94b0, #d1c4e9, #b39ddb); /* Gradient with pink, purple shades */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.navbar .nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar .nav-item {
+    flex: 1;
+    text-align: center;
+}
+
+.navbar .nav-item a {
+    display: block;
+    color: black; 
+    padding: 16px 24px;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.navbar .nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #ff5f6d, #e0c3fc, #e0c3fc, #8ec5fc); /* Gradient with red, orange, pink, and purple */
+}
+
+h1, h2 {
+    font-size: 3em;
+    color: black; 
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1.5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 1.5em;
+    color: black; 
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+input[type="text"], input[type="number"], input[type="date"], select {
+    padding: 10px;
+    border: none;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    width: calc(100% - 24px);
+    background-color: #f9f9f9;
+    color: black; 
+}
+
+input[readonly] {
+    background-color: #f3f3f3;
+    color: black;
+    border: none;
+    box-shadow: none;
+    padding-left: 0;
+}
+
+input[type="submit"], button, input[type="reset"] {
+    background-color: #d6a9d2; 
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="submit"]:hover, button:hover, input[type="reset"]:hover {
+    background-color: #f1d6e6;
+    transform: translateY(-2px);
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.radio-group div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.radio-group div label {
+    margin-left: 10px;
+    font-size: 1.2em;
+    color: black; 
+}
+
+.marks-table {
+    width: 100%;
+    max-width: 800px;
+    border: 2px solid #f1d6e6;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.marks-table th, .marks-table td {
+    border: 2px solid #e3c2dc;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.marks-table th {
+    background-color: #d0a0c8;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 8px 8px 0 0;
+    border: 2px solid white;
+}
+
+.marks-table tr:nth-child(even) {
+    background-color: #f1d6e6;
+}
+
+.marks-table tr:hover {
+    background-color: #d6a9d2; 
+    color: white;
+}
+
+.marks-table td {
+    color: black; 
+}
+
+.chart-container {
+    width: 600px;  
+    height: 400px; 
+    position: relative;  
+}
+
+#myChart {
+    width: 100% !important;  
+    height: 100% !important; 
+}
+
+
+
+/* Responsive design for mobile devices */
+@media screen and (max-width: 600px) {
+    .navbar .nav-list {
+        flex-direction: column;
+    }
+
+    .navbar .nav-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    form {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .radio-group div label {
+        font-size: 1.2em;
+    }
+
+    .marks-table {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+

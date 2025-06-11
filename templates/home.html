@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Record</h1>
+    <form>
+    <div>
+        <label for="num_students">Number of Students:</label>
+        <input type="text" id="num_students" name="num_students" value="{{ num_students }}" readonly>
+    </div>
+    <div>
+        <label for="num_modules">Number of Modules:</label>
+        <input type="text" id="num_modules" name="num_modules" value="{{ num_modules }}" readonly>
+    </div>
+    </form>
+</div>
+
+{% endblock %}
+
+

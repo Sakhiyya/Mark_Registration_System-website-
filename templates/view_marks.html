@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header>
+        <h2>Enter Module Code</h2>
+    </header>
+
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="module_code">Module Code:</label>
+            <input type="text" id="module_code" name="module_code" required>
+            <input type="submit" value="View">
+        </form>
+
+        {% if students %}
+            <h2>Marks for Module {{ module_code }}</h2>
+            <table class="marks-table display">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Coursework 1</th>
+                        <th>Coursework 2</th>
+                        <th>Coursework 3</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <td>{{ student.student_id }}</td>
+                            <td>{{ student.student_name }}</td>
+                            <td>{{ student.coursework1 }}</td>
+                            <td>{{ student.coursework2 }}</td>
+                            <td>{{ student.coursework3 }}</td>
+                            <td>{{ student.total }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% elif module_code %}
+            <p>No students found for module code "{{ module_code }}".</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
